@@ -29,4 +29,17 @@ class ModelResponseTest extends TestCase
 
         $this->assertInstanceOf(Product::class, $response);
     }
+
+    /** @test */
+    public function it_can_set_the_status_code()
+    {
+        $product = Product::first();
+
+        $response = (new ModelResponse($product, ProductResource::class))
+            ->setStatusCode(201)
+            ->toResponse(null);
+
+        $this->assertInstanceOf(JsonResponse::class, $response);
+        $this->assertEquals(201, $response->getStatusCode());
+    }
 }
