@@ -26,6 +26,8 @@ abstract class TestCase extends Orchestra
             'prefix' => '',
         ]);
         $app['config']->set('app.key', 'base64:9e0yNQB60wgU/cqbP09uphPo3aglW3iQJy+u4JQgnQE=');
+
+        $app['config']->set('responder.namespace', 'Signifly\\Responder\\Tests\\Resources');
     }
 
     protected function getPackageProviders($app)
