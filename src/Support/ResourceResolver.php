@@ -2,10 +2,17 @@
 
 namespace Signifly\Responder\Support;
 
+use Signifly\Responder\Exceptions\ResourceNotFoundException;
 use Signifly\Responder\Contracts\ResourceResolver as Contract;
 
 class ResourceResolver implements Contract
 {
+    /**
+     * Resolve a resource from a model class.
+     *
+     * @param  string $model
+     * @return string|null
+     */
     public function resolve(string $model): ?string
     {
         if (empty($model)) {

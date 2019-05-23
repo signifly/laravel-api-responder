@@ -6,11 +6,20 @@ use Exception;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use InvalidArgumentException;
+use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Signifly\Responder\Contracts\ModelResolver as Contract;
 
 class ModelResolver implements Contract
 {
+    /**
+     * Resolve the model from data for a given type.
+     *
+     * @param  mixed $data
+     * @param  string $type
+     * @return string|null
+     */
     public function resolve($data, string $type): ?string
     {
         $methodName = 'resolveFor'.Str::studly($type);
@@ -23,6 +32,12 @@ class ModelResolver implements Contract
         );
     }
 
+    /**
+     * Guard against invalid item.
+     *
+     * @param  mixed $item
+     * @return void
+     */
     protected function guardAgainstInvalidItem($item): void
     {
         if (! $item instanceof Model) {
@@ -30,7 +45,13 @@ class ModelResolver implements Contract
         }
     }
 
-    protected function resolveForArray($data): ?string
+    /**
+     * Resolve for an array.
+     *
+     * @param  array  $data
+     * @return string|null
+     */
+    protected function resolveForArray(array $data): ?string
     {
         if (empty($data)) {
             return null;
@@ -41,7 +62,13 @@ class ModelResolver implements Contract
         return $this->resolveItem($item);
     }
 
-    protected function resolveForCollection($data): ?string
+    /**
+     * Resolve for a collection.
+     *
+     * @param  \Illuminate\Support\Collection $data
+     * @return string|null
+     */
+    protected function resolveForCollection(Collection $data): ?string
     {
         if ($data->isEmpty()) {
             return null;
@@ -55,10 +82,10 @@ class ModelResolver implements Contract
     /**
      * Resolve for paginator.
      *
-     * @param  [type] $data
-     * @return string
+     * @param  \Illuminate\Contracts\Pagination\LengthAwarePaginator $data
+     * @return string|null
      */
-    protected function resolveForPaginator($data): ?string
+    protected function resolveForPaginator(LengthAwarePaginator $data): ?string
     {
         if ($data->isEmpty()) {
             return null;

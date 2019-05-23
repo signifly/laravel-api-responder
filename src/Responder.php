@@ -5,7 +5,7 @@ namespace Signifly\Responder;
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Support\Responsable;
-use Signifly\Responder\Support\ModelResolver;
+use Signifly\Responder\Contracts\ModelResolver;
 use Signifly\Responder\Responses\ModelResponse;
 use Signifly\Responder\Responses\DefaultResponse;
 use Signifly\Responder\Contracts\ResourceResolver;
@@ -16,10 +16,10 @@ use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 class Responder implements Contract
 {
-    /** @var \Signifly\Responder\Support\ModelResolver */
+    /** @var \Signifly\Responder\Contracts\ModelResolver */
     protected $modelResolver;
 
-    /** @var \Signifly\Responder\Support\ResourceResolver */
+    /** @var \Signifly\Responder\Contracts\ResourceResolver */
     protected $resourceResolver;
 
     public function __construct(
@@ -62,7 +62,7 @@ class Responder implements Contract
      */
     protected function respondForCollection(Collection $data)
     {
-        $modelClass = $model ?? $this->modelResolver->resolve($data, 'collection');
+        $modelClass = $this->modelResolver->resolve($data, 'collection');
         $resourceClass = $this->resourceResolver->resolve($modelClass);
 
         return new CollectionResponse($data, $resourceClass);
@@ -90,7 +90,7 @@ class Responder implements Contract
      */
     protected function respondForPaginator(LengthAwarePaginator $data)
     {
-        $modelClass = $model ?? $this->modelResolver->resolve($data, 'paginator');
+        $modelClass = $this->modelResolver->resolve($data, 'paginator');
         $resourceClass = $this->resourceResolver->resolve($modelClass);
 
         return new PaginatorResponse($data, $resourceClass);
