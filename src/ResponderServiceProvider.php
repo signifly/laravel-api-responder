@@ -48,6 +48,16 @@ class ResponderServiceProvider extends ServiceProvider
         });
     }
 
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array
+     */
+    public function provides()
+    {
+        return [ResponderContract::class];
+    }
+
     protected function publishConfigs(): void
     {
         $this->publishes([

@@ -43,6 +43,7 @@
                 "Signifly\\Responder\\ResponderServiceProvider"
             ],
             "aliases": {
+                "Responder": "Signifly\\Responder\\Facades\\Responder"
             }
         }
     }
