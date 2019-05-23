@@ -64,6 +64,7 @@ class Responder implements Contract
     {
         $modelClass = $model ?? $this->modelResolver->resolve($data, 'collection');
         $resourceClass = $this->resourceResolver->resolve($modelClass);
+
         return new CollectionResponse($data, $resourceClass);
     }
 
@@ -76,6 +77,7 @@ class Responder implements Contract
     protected function respondForModel(Model $model)
     {
         $resourceClass = $this->resourceResolver->resolve(get_class($model));
+
         return new ModelResponse($model, $resourceClass);
     }
 
@@ -90,6 +92,7 @@ class Responder implements Contract
     {
         $modelClass = $model ?? $this->modelResolver->resolve($data, 'paginator');
         $resourceClass = $this->resourceResolver->resolve($modelClass);
+
         return new PaginatorResponse($data, $resourceClass);
     }
 }
