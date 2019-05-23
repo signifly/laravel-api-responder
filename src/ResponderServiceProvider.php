@@ -18,6 +18,20 @@ class ResponderServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        if ($this->app->runningInConsole()) {
+            $this->publishConfigs();
+        }
+
+        $this->mergeConfigFrom(__DIR__.'/../config/responder.php', 'responder');
+    }
+
+    /**
+     * Register the service provider.
+     *
+     * @return void
+     */
+    public function register()
+    {
         $this->app->singleton(ResponderContract::class, function ($app) {
             return new Responder(
                 $app->make(ModelResolver::class),
@@ -34,12 +48,10 @@ class ResponderServiceProvider extends ServiceProvider
         });
     }
 
-    /**
-     * Register the service provider.
-     *
-     * @return void
-     */
-    public function register()
+    protected function publishConfigs(): void
     {
+        $this->publishes([
+            __DIR__.'/../config/responder.php' => config_path('responder.php'),
+        ], 'responder-config');
     }
 }
