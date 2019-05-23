@@ -2,29 +2,28 @@
 
 namespace Signifly\Responder\Support;
 
-class ResourceResolver
+use Signifly\Responder\Contracts\ResourceResolver as Contract;
+
+class ResourceResolver implements Contract
 {
-    /** @var string */
-    protected $model;
-
-    public function __construct(string $model)
+    public function resolve(string $model): ?string
     {
-        $this->model = $model;
-    }
+        if (empty($model)) {
+            return null;
+        }
 
-    public static function forModel(string $model): string
-    {
-        return (new self($model))->handle();
-    }
-
-    public function handle(): string
-    {
-        $modelName = class_basename($this->model);
+        $modelName = class_basename($model);
 
         $resourceName = config('responder.namespace').'\\'.$modelName;
 
-        return config('responder.use_type_suffix')
+        $resourceClass = config('responder.use_type_suffix')
             ? $resourceName
             : $resourceName.'Resource';
+
+        if (! class_exists($resourceClass) && config('responder.force_resources')) {
+            throw ResourceNotFoundException::for($resourceClass);
+        }
+
+        return $resourceClass;
     }
 }
