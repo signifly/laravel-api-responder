@@ -6,15 +6,23 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class ResourceFactory
 {
-    public function make(string $model): JsonResource
+    /** @var string */
+    protected $model;
+
+    public function __construct(string $model)
     {
-        $resourceClass = ResourceResolver::forModel($model);
+        $this->model = $model;
+    }
+
+    public function make(): JsonResource
+    {
+        $resourceClass = ResourceResolver::forModel($this->model);
 
         return new $resourceClass();
     }
 
     public static function forModel(string $model): JsonResource
     {
-        return (new self())->make($model);
+        return (new self($model))->make();
     }
 }
