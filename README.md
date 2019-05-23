@@ -2,7 +2,7 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/signifly/laravel-api-responder.svg?style=flat-square)](https://packagist.org/packages/signifly/laravel-api-responder)
 [![Build Status](https://img.shields.io/travis/signifly/laravel-api-responder/master.svg?style=flat-square)](https://travis-ci.org/signifly/laravel-api-responder)
-[![StyleCI](https://styleci.io/repos/174323285/shield?branch=master)](https://styleci.io/repos/174323285)
+[![StyleCI](https://styleci.io/repos/188211079/shield?branch=master)](https://styleci.io/repos/188211079)
 [![Quality Score](https://img.shields.io/scrutinizer/g/signifly/laravel-api-responder.svg?style=flat-square)](https://scrutinizer-ci.com/g/signifly/laravel-api-responder)
 [![Total Downloads](https://img.shields.io/packagist/dt/signifly/laravel-api-responder.svg?style=flat-square)](https://packagist.org/packages/signifly/laravel-api-responder)
 
