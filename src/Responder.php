@@ -53,7 +53,7 @@ class Responder implements Contract
      * @param  string $model
      * @return mixed
      */
-    protected function respondForCollection(Collection $data, string $model)
+    protected function respondForCollection(Collection $data)
     {
         $modelClass = $model ?? $this->modelResolver->resolve($data, 'collection');
         $resourceClass = $this->resourceResolver->resolve($modelClass);
@@ -68,7 +68,8 @@ class Responder implements Contract
      */
     protected function respondForModel(Model $model)
     {
-        return new ModelResponse($model);
+        $resourceClass = $this->resourceResolver->resolve(get_class($model));
+        return new ModelResponse($model, $resourceClass);
     }
 
     /**
@@ -78,8 +79,10 @@ class Responder implements Contract
      * @param  string $model
      * @return mixed
      */
-    protected function respondForPaginator(LengthAwarePaginator $data, string $model)
+    protected function respondForPaginator(LengthAwarePaginator $data)
     {
-        return new PaginatorResponse($data, $model);
+        $modelClass = $model ?? $this->modelResolver->resolve($data, 'paginator');
+        $resourceClass = $this->resourceResolver->resolve($modelClass);
+        return new PaginatorResponse($data, $resourceClass);
     }
 }
