@@ -17,8 +17,8 @@ class ResourceResolver implements Contract
         $resourceName = config('responder.namespace').'\\'.$modelName;
 
         $resourceClass = config('responder.use_type_suffix')
-            ? $resourceName
-            : $resourceName.'Resource';
+            ? $resourceName.'Resource'
+            : $resourceName;
 
         if (! class_exists($resourceClass) && config('responder.force_resources')) {
             throw ResourceNotFoundException::for($resourceClass);
