@@ -24,6 +24,14 @@ class ProductController extends Controller
         return $this->respond($paginator);
     }
 
+    public function store(Request $request)
+    {
+        $product = Product::create($request->all());
+
+        return $this->respond($product->fresh())
+            ->setStatusCode(201);
+    }
+
     public function show(Product $product)
     {
         return $this->respond($product);
