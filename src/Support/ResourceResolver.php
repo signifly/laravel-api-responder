@@ -13,7 +13,7 @@ class ResourceResolver implements Contract
      * @param  string $model
      * @return string|null
      */
-    public function resolve(string $model): ?string
+    public function resolve(?string $model): ?string
     {
         if (empty($model)) {
             return null;
