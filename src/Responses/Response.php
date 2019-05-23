@@ -14,13 +14,12 @@ abstract class Response implements Responsable
      */
     protected function getResourceClassFor(string $model)
     {
-        $baseClass = class_basename($model);
-        $class = config('responder.namespace').'\\'.$baseClass;
+        $resourceClass = ResourceResolver::forModel($model);
 
-        if (config('responder.force_resources') && ! class_exists($class)) {
-            throw new Exception(sprintf('Could not find a resource for %s', $baseClass));
+        if (config('responder.force_resources') && ! class_exists($resourceClass)) {
+            throw new Exception(sprintf('Could not find a resource for %s', $model));
         }
 
-        return $class;
+        return $resourceClass;
     }
 }
