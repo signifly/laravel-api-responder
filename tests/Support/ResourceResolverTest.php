@@ -37,4 +37,12 @@ class ResourceResolverTest extends TestCase
 
         $this->assertEquals(ProductResource::class, $resourceClass);
     }
+
+    /** @test */
+    public function it_returns_null_if_the_class_does_not_exist()
+    {
+        $resourceClass = $this->resolver->resolve('App\\Models\\Invalid');
+
+        $this->assertNull($resourceClass);
+    }
 }

@@ -24,6 +24,6 @@ class ResourceResolver implements Contract
             throw ResourceNotFoundException::for($resourceClass);
         }
 
-        return $resourceClass;
+        return class_exists($resourceClass) ? $resourceClass : null;
     }
 }
