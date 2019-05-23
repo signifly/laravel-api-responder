@@ -6,22 +6,25 @@ use Illuminate\Support\Collection;
 
 class CollectionResponse extends Response
 {
-    /** @var string */
-    protected $model;
-
     /** @var \Illuminate\Support\Collection */
     protected $collection;
 
-    public function __construct(Collection $collection, string $model)
+    /** @var string */
+    protected $resourceClass;
+
+    public function __construct(Collection $collection, ?string $resourceClass = null)
     {
         $this->collection = $collection;
-        $this->model = $model;
+        $this->resourceClass = $resourceClass;
     }
 
     public function toResponse($request)
     {
-        $resourceClass = $this->getResourceClassFor($this->model);
+        if (empty($this->resourceClass)) {
+            return $this->collection;
+        }
 
-        return $resourceClass::collection($this->collection)->toResponse($request);
+        return $this->resourceClass::collection($this->collection)
+            ->toResponse($request);
     }
 }

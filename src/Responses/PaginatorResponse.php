@@ -6,22 +6,27 @@ use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 class PaginatorResponse extends Response
 {
-    /** @var string */
-    protected $model;
-
     /** @var \Illuminate\Contracts\Pagination\LengthAwarePaginator */
     protected $paginator;
 
-    public function __construct(LengthAwarePaginator $paginator, string $model)
-    {
+    /** @var string */
+    protected $resourceClass;
+
+    public function __construct(
+        LengthAwarePaginator $paginator,
+        ?string $resourceClass = null
+    ) {
         $this->paginator = $paginator;
-        $this->model = $model;
+        $this->resourceClass = $resourceClass;
     }
 
     public function toResponse($request)
     {
-        $resourceClass = $this->getResourceClassFor($this->model);
+        if (empty($this->resourceClass)) {
+            return $this->paginator;
+        }
 
-        return $resourceClass::collection($this->paginator)->toResponse($request);
+        return $this->resourceClass::collection($this->paginator)
+            ->toResponse($request);
     }
 }
