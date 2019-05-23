@@ -11,15 +11,15 @@ use Signifly\Responder\Contracts\ModelResolver as Contract;
 
 class ModelResolver implements Contract
 {
-    public function resolve($data, string $type): string
+    public function resolve($data, string $type): ?string
     {
-        $methodName = 'resolveFor'.Str::studly($this->type);
+        $methodName = 'resolveFor'.Str::studly($type);
         if (method_exists($this, $methodName)) {
             return $this->$methodName($data);
         }
 
         throw new InvalidArgumentException(
-            sprintf('The type `%s` is invalid for resolving a model.', $this->type)
+            sprintf('The type `%s` is invalid for resolving a model.', $type)
         );
     }
 

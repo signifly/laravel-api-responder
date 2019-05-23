@@ -3,6 +3,7 @@
 namespace Signifly\Responder\Tests;
 
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
 use Signifly\Responder\Tests\Models\Product;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Signifly\Responder\ResponderServiceProvider;
