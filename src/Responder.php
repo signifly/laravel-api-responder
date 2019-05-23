@@ -6,6 +6,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Support\Responsable;
 use Signifly\Responder\Support\ModelResolver;
+use Signifly\Responder\Responses\ModelResponse;
 use Signifly\Responder\Responses\DefaultResponse;
 use Signifly\Responder\Contracts\ResourceResolver;
 use Signifly\Responder\Responses\PaginatorResponse;
@@ -29,6 +30,12 @@ class Responder implements Contract
         $this->resourceResolver = $resourceResolver;
     }
 
+    /**
+     * Respond to data.
+     *
+     * @param  mixed $data
+     * @return \Illuminate\Contracts\Support\Responsable
+     */
     public function respond($data): Responsable
     {
         if ($data instanceof Collection) {
@@ -49,9 +56,9 @@ class Responder implements Contract
     /**
      * Respond for a collection.
      *
-     * @param  Collection $data
+     * @param  \Illuminate\Support\Collection $data
      * @param  string $model
-     * @return mixed
+     * @return \Signifly\Responder\Responses\CollectionResponse
      */
     protected function respondForCollection(Collection $data)
     {
@@ -64,7 +71,7 @@ class Responder implements Contract
      * Respond for a given model.
      *
      * @param  \Illuminate\Database\Eloquent\Model  $model
-     * @return \Illuminate\Http\Resources\Json\JsonResource
+     * @return \Signifly\Responder\Responses\ModelResponse
      */
     protected function respondForModel(Model $model)
     {
@@ -75,9 +82,9 @@ class Responder implements Contract
     /**
      * Respond for a paginator.
      *
-     * @param  LengthAwarePaginator $data
+     * @param  \Illuminate\Contracts\Pagination\LengthAwarePaginator $data
      * @param  string $model
-     * @return mixed
+     * @return \Signifly\Responder\Responses\PaginatorResponse
      */
     protected function respondForPaginator(LengthAwarePaginator $data)
     {

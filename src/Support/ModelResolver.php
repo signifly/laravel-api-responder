@@ -30,7 +30,7 @@ class ModelResolver implements Contract
         }
     }
 
-    protected function resolveForArray($data): string
+    protected function resolveForArray($data): ?string
     {
         if (empty($data)) {
             return null;
@@ -41,7 +41,7 @@ class ModelResolver implements Contract
         return $this->resolveItem($item);
     }
 
-    protected function resolveForCollection($data): string
+    protected function resolveForCollection($data): ?string
     {
         if ($data->isEmpty()) {
             return null;
@@ -52,17 +52,29 @@ class ModelResolver implements Contract
         return $this->resolveItem($item);
     }
 
-    protected function resolveForPaginator($data): string
+    /**
+     * Resolve for paginator.
+     *
+     * @param  [type] $data
+     * @return string
+     */
+    protected function resolveForPaginator($data): ?string
     {
         if ($data->isEmpty()) {
             return null;
         }
 
-        $item = $data->items()->first();
+        $item = $data->getCollection()->first();
 
         return $this->resolveItem($item);
     }
 
+    /**
+     * Resolve an item.
+     *
+     * @param  mixed $item
+     * @return string
+     */
     protected function resolveItem($item): string
     {
         $this->guardAgainstInvalidItem($item);
