@@ -2,11 +2,12 @@
 
 namespace Signifly\Responder\Tests;
 
-use Signifly\Responder\Contracts\Responder;
+use Signifly\Responder\Facades\Responder;
 use Signifly\Responder\Tests\Models\Product;
 use Signifly\Responder\Responses\ModelResponse;
 use Signifly\Responder\Responses\PaginatorResponse;
 use Signifly\Responder\Responses\CollectionResponse;
+use Signifly\Responder\Contracts\Responder as ResponderContract;
 
 class ResponderTest extends TestCase
 {
@@ -14,7 +15,7 @@ class ResponderTest extends TestCase
     {
         parent::setUp();
 
-        $this->responder = app(Responder::class);
+        $this->responder = app(ResponderContract::class);
     }
 
     /** @test */
@@ -48,6 +49,18 @@ class ResponderTest extends TestCase
 
         // Act
         $response = $this->responder->respond($product);
+
+        // Assert
+        $this->assertInstanceOf(ModelResponse::class, $response);
+    }
+
+    /** @test */
+    public function it_can_use_the_facade()
+    {
+        $product = Product::first();
+
+        // Act
+        $response = Responder::respond($product);
 
         // Assert
         $this->assertInstanceOf(ModelResponse::class, $response);

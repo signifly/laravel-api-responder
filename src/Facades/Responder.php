@@ -3,7 +3,7 @@
 namespace Signifly\Responder\Facades;
 
 use Illuminate\Support\Facades\Facade;
-use Signifly\Responder\Contracts\Responder;
+use Signifly\Responder\Contracts\Responder as ResponderContract;
 
 class Responder extends Facade
 {
@@ -14,6 +14,6 @@ class Responder extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return Responder::class;
+        return ResponderContract::class;
     }
 }
