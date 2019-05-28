@@ -3,6 +3,7 @@
 namespace Signifly\Responder\Tests\Responses;
 
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Collection;
 use Signifly\Responder\Tests\TestCase;
 use Signifly\Responder\Tests\Models\Product;
 use Signifly\Responder\Responses\PaginatorResponse;
@@ -19,15 +20,17 @@ class PaginatorResponseTest extends TestCase
         $response = (new PaginatorResponse($products, ProductResource::class))->toResponse(null);
 
         $this->assertInstanceOf(JsonResponse::class, $response);
+        $this->assertInstanceOf(Collection::class, $response->original);
     }
 
     /** @test */
-    public function it_returns_a_model_if_no_resource_is_provided()
+    public function it_returns_a_json_response_if_no_resource_is_provided()
     {
         $products = Product::paginate(5);
 
         $response = (new PaginatorResponse($products))->toResponse(null);
 
-        $this->assertInstanceOf(LengthAwarePaginator::class, $response);
+        $this->assertInstanceOf(JsonResponse::class, $response);
+        $this->assertInstanceOf(LengthAwarePaginator::class, $response->original);
     }
 }

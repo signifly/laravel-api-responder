@@ -12,9 +12,6 @@ class PaginatorResponse extends Response
     /** @var string */
     protected $resourceClass;
 
-    /** @var int */
-    protected $statusCode = 200;
-
     public function __construct(
         LengthAwarePaginator $paginator,
         ?string $resourceClass = null
@@ -23,17 +20,12 @@ class PaginatorResponse extends Response
         $this->resourceClass = $resourceClass;
     }
 
-    public function setStatusCode(int $statusCode): self
-    {
-        $this->statusCode = $statusCode;
-
-        return $this;
-    }
-
     public function toResponse($request)
     {
         if (empty($this->resourceClass)) {
-            return $this->paginator;
+            return (new DefaultResponse($this->paginator))
+                ->setStatusCode($this->statusCode)
+                ->toResponse($request);
         }
 
         return $this->resourceClass::collection($this->paginator)

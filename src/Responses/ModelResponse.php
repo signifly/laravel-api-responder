@@ -23,13 +23,6 @@ class ModelResponse extends Response
         $this->resourceClass = $resourceClass;
     }
 
-    public function setStatusCode(int $statusCode): self
-    {
-        $this->statusCode = $statusCode;
-
-        return $this;
-    }
-
     public function toResponse($request)
     {
         // Respond appropriately to a deleted model

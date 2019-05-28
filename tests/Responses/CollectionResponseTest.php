@@ -19,15 +19,32 @@ class CollectionResponseTest extends TestCase
         $response = (new CollectionResponse($products, ProductResource::class))->toResponse(null);
 
         $this->assertInstanceOf(JsonResponse::class, $response);
+        $this->assertContainsOnlyInstancesOf(ProductResource::class, $response->original);
     }
 
     /** @test */
-    public function it_returns_the_collection_if_no_resource_is_provided()
+    public function it_returns_a_json_response_if_no_resource_is_provided()
     {
         $products = Product::all();
 
         $response = (new CollectionResponse($products))->toResponse(null);
 
-        $this->assertInstanceOf(Collection::class, $response);
+        $this->assertInstanceOf(JsonResponse::class, $response);
+        $this->assertEquals(200, $response->status());
+        $this->assertInstanceOf(Collection::class, $response->original);
+        $this->assertContainsOnlyInstancesOf(Product::class, $response->original);
+    }
+
+    /** @test */
+    public function it_can_set_the_status_code()
+    {
+        $products = Product::all();
+
+        $response = (new CollectionResponse($products))
+            ->setStatusCode(204)
+            ->toResponse(null);
+
+        $this->assertInstanceOf(JsonResponse::class, $response);
+        $this->assertEquals(204, $response->status());
     }
 }
