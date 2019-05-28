@@ -12,10 +12,20 @@ class CollectionResponse extends Response
     /** @var string */
     protected $resourceClass;
 
+    /** @var int */
+    protected $statusCode = 200;
+
     public function __construct(Collection $collection, ?string $resourceClass = null)
     {
         $this->collection = $collection;
         $this->resourceClass = $resourceClass;
+    }
+
+    public function setStatusCode(int $statusCode): self
+    {
+        $this->statusCode = $statusCode;
+
+        return $this;
     }
 
     public function toResponse($request)
@@ -25,6 +35,7 @@ class CollectionResponse extends Response
         }
 
         return $this->resourceClass::collection($this->collection)
-            ->toResponse($request);
+            ->toResponse($request)
+            ->setStatusCode($this->statusCode);
     }
 }
