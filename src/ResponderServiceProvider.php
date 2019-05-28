@@ -55,7 +55,11 @@ class ResponderServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return [ResponderContract::class];
+        return [
+            ResponderContract::class,
+            ModelResolverContract::class,
+            ResourceResolverContract::class,
+        ];
     }
 
     protected function publishConfigs(): void
