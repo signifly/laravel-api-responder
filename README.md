@@ -29,7 +29,7 @@ class ProductController extends Controller
         $product = Product::create($request->all());
 
         return $this->respond($product->fresh())
-            ->setStatusCode(201);
+            ->setStatusCode(201); // responds with a 201 status code
     }
 
     public function show(Product $product)
@@ -41,7 +41,7 @@ class ProductController extends Controller
     {
         $product->delete();
 
-        return $this->respond($product);
+        return $this->respond($product); // return an empty 204 json response
     }
 }
 ```
@@ -95,6 +95,69 @@ return [
     
 ];
 ```
+
+## Usage
+
+The responder can be used in several ways.
+
+### Using the Facade
+
+```php
+use Signifly\Responder\Facades\Responder;
+
+class ProductController
+{
+    public function show(Product $product)
+    {
+        return Responder::respond($product);
+    }
+}
+```
+
+### Using the Trait
+
+```php
+use Signifly\Responder\Concerns\Respondable;
+
+class ProductController
+{
+    use Respondable;
+
+    public function show(Product $product)
+    {
+        return $this->respond($product);
+    }
+}
+```
+
+### Using the Service Container
+
+```php
+use Signifly\Responder\Contracts\Responder;
+
+class ProductController
+{
+    public function show(Product $product, Responder $responder)
+    {
+        return $responder->respond($product);
+    }
+}
+```
+
+### Custom response codes
+
+You can set the status code of the response by using the `setStatusCode` method on the response from the responder.
+
+```php
+return Responder::respond($data)
+    ->setStatusCode(201);
+```
+
+### Forcing the usage of API resources
+
+If you want to force the usage of API resources, you have to set the `responder.force_resources` option to `true` in the config file.
+
+When set to true it will throw a `ResourceNotFoundException` if a resource for the associated model could not be found.
 
 ## Testing
 ```bash
