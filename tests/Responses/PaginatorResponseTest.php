@@ -20,7 +20,10 @@ class PaginatorResponseTest extends TestCase
         $response = (new PaginatorResponse($products, ProductResource::class))->toResponse(null);
 
         $this->assertInstanceOf(JsonResponse::class, $response);
-        $this->assertInstanceOf(Collection::class, $response->original);
+
+        if (version_compare($this->app->version(), '5.8', '>')) {
+            $this->assertInstanceOf(Collection::class, $response->original);
+        }
     }
 
     /** @test */

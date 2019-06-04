@@ -19,7 +19,10 @@ class CollectionResponseTest extends TestCase
         $response = (new CollectionResponse($products, ProductResource::class))->toResponse(null);
 
         $this->assertInstanceOf(JsonResponse::class, $response);
-        $this->assertContainsOnlyInstancesOf(ProductResource::class, $response->original);
+
+        if (version_compare($this->app->version(), '5.8', '>')) {
+            $this->assertContainsOnlyInstancesOf(ProductResource::class, $response->original);
+        }
     }
 
     /** @test */
