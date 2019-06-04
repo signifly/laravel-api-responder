@@ -155,9 +155,15 @@ return Responder::respond($data)
 
 ### Forcing the usage of API resources
 
-If you want to force the usage of API resources, you have to set the `responder.force_resources` option to `true` in the config file.
+If you want to force the usage of API resources, you have to set the `force_resources` option to `true` in the `config/responder.php` file.
 
 When set to true it will throw a `ResourceNotFoundException` if a resource for the associated model could not be found.
+
+### Using type suffixes
+
+If you are using type suffixes as naming convention, when creating new resources, then you should set the `use_type_suffix` option to `true` in the `config/responder.php` file.
+
+When set to true it expects your resources to be named like `UserResource` instead of just `User`.
 
 ## Testing
 ```bash
