@@ -57,7 +57,6 @@ class Responder implements Contract
      * Respond for a collection.
      *
      * @param  \Illuminate\Support\Collection $data
-     * @param  string $model
      * @return \Signifly\Responder\Responses\CollectionResponse
      */
     protected function respondForCollection(Collection $data)
@@ -85,7 +84,6 @@ class Responder implements Contract
      * Respond for a paginator.
      *
      * @param  \Illuminate\Contracts\Pagination\LengthAwarePaginator $data
-     * @param  string $model
      * @return \Signifly\Responder\Responses\PaginatorResponse
      */
     protected function respondForPaginator(LengthAwarePaginator $data)
