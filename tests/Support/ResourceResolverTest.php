@@ -4,6 +4,7 @@ namespace Signifly\Responder\Tests\Support;
 
 use Signifly\Responder\Tests\TestCase;
 use Signifly\Responder\Tests\Resources\Product;
+use Illuminate\Http\Resources\Json\JsonResource;
 use Signifly\Responder\Contracts\ResourceResolver;
 use Signifly\Responder\Tests\Resources\ProductResource;
 
@@ -39,10 +40,10 @@ class ResourceResolverTest extends TestCase
     }
 
     /** @test */
-    public function it_returns_null_if_the_class_does_not_exist()
+    public function it_returns_the_default_resource_if_the_class_does_not_exist()
     {
         $resourceClass = $this->resolver->resolve('App\\Models\\Invalid');
 
-        $this->assertNull($resourceClass);
+        $this->assertEquals(JsonResource::class, $resourceClass);
     }
 }

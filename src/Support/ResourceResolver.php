@@ -2,6 +2,7 @@
 
 namespace Signifly\Responder\Support;
 
+use Illuminate\Http\Resources\Json\JsonResource;
 use Signifly\Responder\Exceptions\ResourceNotFoundException;
 use Signifly\Responder\Contracts\ResourceResolver as Contract;
 
@@ -13,12 +14,8 @@ class ResourceResolver implements Contract
      * @param  string $model
      * @return string|null
      */
-    public function resolve(?string $model): ?string
+    public function resolve(string $model): string
     {
-        if (empty($model)) {
-            return null;
-        }
-
         $modelName = class_basename($model);
 
         $resourceName = config('responder.namespace').'\\'.$modelName;
@@ -31,6 +28,8 @@ class ResourceResolver implements Contract
             throw ResourceNotFoundException::for($resourceClass);
         }
 
-        return class_exists($resourceClass) ? $resourceClass : null;
+        return class_exists($resourceClass)
+            ? $resourceClass
+            : config('responder.default_resource', JsonResource::class);
     }
 }
