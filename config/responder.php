@@ -16,6 +16,11 @@ return [
     'force_resources' => false,
 
     /*
+     * The default resource to use when no other resource is resolved.
+     */
+    'default_resource' => Illuminate\Http\Resources\Json\JsonResource::class,
+
+    /*
      * Indicates if the resources uses a naming convention with a type suffix.
      *
      * If it is set to true it will try to resolve `UserResource`.
