@@ -153,6 +153,14 @@ return Responder::respond($data)
     ->setStatusCode(201);
 ```
 
+### Specific resource classes
+
+If you would like to specify a resource class it can be passed as the second parameter to the respond method:
+
+```php
+return Responder::respond($data, UserResource::class);
+```
+
 ### Forcing the usage of API resources
 
 If you want to force the usage of API resources, you have to set the `force_resources` option to `true` in the `config/responder.php` file.
