@@ -9,13 +9,23 @@ class DefaultResponse extends Response
     /** @var mixed */
     protected $data;
 
-    public function __construct($data)
+    /** @var string */
+    protected $resourceClass;
+
+    public function __construct($data, ?string $resourceClass = null)
     {
         $this->data = $data;
+        $this->resourceClass = $resourceClass;
     }
 
     public function toResponse($request)
     {
-        return new JsonResponse($this->data, $this->statusCode);
+        if (is_null($this->resourceClass)) {
+            return new JsonResponse($this->data, $this->statusCode);
+        }
+
+        return (new $this->resourceClass($this->data))
+            ->toResponse($request)
+            ->setStatusCode($this->statusCode);
     }
 }
