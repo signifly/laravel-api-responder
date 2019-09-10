@@ -2,6 +2,9 @@
 
 All notable changes to `laravel-api-responder` will be documented in this file
 
+## 1.2.0 - 2019-09-10
+
+- Add support for Laravel 6.0
 
 ## 1.1.0 - 2019-06-11
 
