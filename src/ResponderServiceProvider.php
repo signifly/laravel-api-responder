@@ -3,11 +3,11 @@
 namespace Signifly\Responder;
 
 use Illuminate\Support\ServiceProvider;
-use Signifly\Responder\Support\ModelResolver;
-use Signifly\Responder\Support\ResourceResolver;
-use Signifly\Responder\Contracts\Responder as ResponderContract;
 use Signifly\Responder\Contracts\ModelResolver as ModelResolverContract;
 use Signifly\Responder\Contracts\ResourceResolver as ResourceResolverContract;
+use Signifly\Responder\Contracts\Responder as ResponderContract;
+use Signifly\Responder\Support\ModelResolver;
+use Signifly\Responder\Support\ResourceResolver;
 
 class ResponderServiceProvider extends ServiceProvider
 {

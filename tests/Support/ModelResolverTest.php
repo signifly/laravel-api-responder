@@ -2,9 +2,9 @@
 
 namespace Signifly\Responder\Tests\Support;
 
-use Signifly\Responder\Tests\TestCase;
-use Signifly\Responder\Tests\Models\Product;
 use Signifly\Responder\Contracts\ModelResolver;
+use Signifly\Responder\Tests\Models\Product;
+use Signifly\Responder\Tests\TestCase;
 
 class ModelResolverTest extends TestCase
 {

@@ -2,12 +2,12 @@
 
 namespace Signifly\Responder\Tests;
 
+use Signifly\Responder\Contracts\Responder as ResponderContract;
 use Signifly\Responder\Facades\Responder;
-use Signifly\Responder\Tests\Models\Product;
+use Signifly\Responder\Responses\CollectionResponse;
 use Signifly\Responder\Responses\ModelResponse;
 use Signifly\Responder\Responses\PaginatorResponse;
-use Signifly\Responder\Responses\CollectionResponse;
-use Signifly\Responder\Contracts\Responder as ResponderContract;
+use Signifly\Responder\Tests\Models\Product;
 
 class ResponderTest extends TestCase
 {

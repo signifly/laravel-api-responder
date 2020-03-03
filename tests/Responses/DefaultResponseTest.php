@@ -3,8 +3,8 @@
 namespace Signifly\Responder\Tests\Responses;
 
 use Illuminate\Http\JsonResponse;
-use Signifly\Responder\Tests\TestCase;
 use Signifly\Responder\Responses\DefaultResponse;
+use Signifly\Responder\Tests\TestCase;
 
 class DefaultResponseTest extends TestCase
 {

@@ -2,9 +2,9 @@
 
 namespace Signifly\Responder\Responses;
 
-use Illuminate\Http\JsonResponse;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Http\JsonResponse;
 
 class ModelResponse extends Response
 {

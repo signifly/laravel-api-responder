@@ -3,8 +3,8 @@
 namespace Signifly\Responder\Support;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use Signifly\Responder\Exceptions\ResourceNotFoundException;
 use Signifly\Responder\Contracts\ResourceResolver as Contract;
+use Signifly\Responder\Exceptions\ResourceNotFoundException;
 
 class ResourceResolver implements Contract
 {

@@ -4,10 +4,10 @@ namespace Signifly\Responder\Tests\Responses;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Collection;
-use Signifly\Responder\Tests\TestCase;
-use Signifly\Responder\Tests\Models\Product;
 use Signifly\Responder\Responses\CollectionResponse;
+use Signifly\Responder\Tests\Models\Product;
 use Signifly\Responder\Tests\Resources\ProductResource;
+use Signifly\Responder\Tests\TestCase;
 
 class CollectionResponseTest extends TestCase
 {

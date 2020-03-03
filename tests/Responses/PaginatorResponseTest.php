@@ -2,13 +2,13 @@
 
 namespace Signifly\Responder\Tests\Responses;
 
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Collection;
-use Signifly\Responder\Tests\TestCase;
-use Signifly\Responder\Tests\Models\Product;
 use Signifly\Responder\Responses\PaginatorResponse;
+use Signifly\Responder\Tests\Models\Product;
 use Signifly\Responder\Tests\Resources\ProductResource;
-use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Signifly\Responder\Tests\TestCase;
 
 class PaginatorResponseTest extends TestCase
 {

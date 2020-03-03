@@ -2,8 +2,8 @@
 
 namespace Signifly\Responder\Concerns;
 
-use Signifly\Responder\Contracts\Responder;
 use Illuminate\Contracts\Support\Responsable;
+use Signifly\Responder\Contracts\Responder;
 
 trait Respondable
 {

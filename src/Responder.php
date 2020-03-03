@@ -2,18 +2,18 @@
 
 namespace Signifly\Responder;
 
-use Illuminate\Support\Collection;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Contracts\Support\Responsable;
-use Signifly\Responder\Contracts\ModelResolver;
-use Signifly\Responder\Responses\ModelResponse;
-use Illuminate\Http\Resources\Json\JsonResource;
-use Signifly\Responder\Responses\DefaultResponse;
-use Signifly\Responder\Contracts\ResourceResolver;
-use Signifly\Responder\Responses\PaginatorResponse;
-use Signifly\Responder\Responses\CollectionResponse;
-use Signifly\Responder\Contracts\Responder as Contract;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Contracts\Support\Responsable;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Collection;
+use Signifly\Responder\Contracts\ModelResolver;
+use Signifly\Responder\Contracts\ResourceResolver;
+use Signifly\Responder\Contracts\Responder as Contract;
+use Signifly\Responder\Responses\CollectionResponse;
+use Signifly\Responder\Responses\DefaultResponse;
+use Signifly\Responder\Responses\ModelResponse;
+use Signifly\Responder\Responses\PaginatorResponse;
 
 class Responder implements Contract
 {

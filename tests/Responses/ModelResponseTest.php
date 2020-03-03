@@ -3,10 +3,10 @@
 namespace Signifly\Responder\Tests\Responses;
 
 use Illuminate\Http\JsonResponse;
-use Signifly\Responder\Tests\TestCase;
-use Signifly\Responder\Tests\Models\Product;
 use Signifly\Responder\Responses\ModelResponse;
+use Signifly\Responder\Tests\Models\Product;
 use Signifly\Responder\Tests\Resources\ProductResource;
+use Signifly\Responder\Tests\TestCase;
 
 class ModelResponseTest extends TestCase
 {

@@ -2,11 +2,11 @@
 
 namespace Signifly\Responder\Tests\Support;
 
-use Signifly\Responder\Tests\TestCase;
-use Signifly\Responder\Tests\Resources\Product;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Signifly\Responder\Contracts\ResourceResolver;
+use Signifly\Responder\Tests\Resources\Product;
 use Signifly\Responder\Tests\Resources\ProductResource;
+use Signifly\Responder\Tests\TestCase;
 
 class ResourceResolverTest extends TestCase
 {
