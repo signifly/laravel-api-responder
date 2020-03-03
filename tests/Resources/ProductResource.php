@@ -2,8 +2,8 @@
 
 namespace Signifly\Responder\Tests\Resources;
 
-use Illuminate\Http\Resources\Json\Resource;
+use Illuminate\Http\Resources\Json\JsonResource;
 
-class ProductResource extends Resource
+class ProductResource extends JsonResource
 {
 }
