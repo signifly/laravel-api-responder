@@ -96,9 +96,9 @@ class Responder implements Contract
      */
     protected function respondForPaginator(LengthAwarePaginator $data, ?string $resourceClass)
     {
-        $modelClass = $this->modelResolver->resolve($data, 'paginator');
-
         if (is_null($resourceClass)) {
+            $modelClass = $this->modelResolver->resolve($data, 'paginator');
+
             $resourceClass = empty($modelClass)
                 ? config('responder.default_resource', JsonResource::class)
                 : $this->resourceResolver->resolve($modelClass);
