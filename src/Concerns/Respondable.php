@@ -7,8 +7,8 @@ use Signifly\Responder\Contracts\Responder;
 
 trait Respondable
 {
-    protected function respond($data): Responsable
+    protected function respond($data, ?string $resourceClass = null): Responsable
     {
-        return app(Responder::class)->respond($data);
+        return app(Responder::class)->respond($data, $resourceClass);
     }
 }
