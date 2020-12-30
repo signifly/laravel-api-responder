@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-api-responder` will be documented in this file
 
+## 1.3.2 - 2020-12-30
+
+- Add support for PHP 8.0
+
 ## 1.3.1 - 2020-09-11
 
 - Add support for Laravel 8.0
