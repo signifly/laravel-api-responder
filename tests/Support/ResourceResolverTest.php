@@ -1,12 +1,12 @@
 <?php
 
-namespace Signifly\Responder\Tests\Support;
+namespace R4nkt\Responder\Tests\Support;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use Signifly\Responder\Contracts\ResourceResolver;
-use Signifly\Responder\Tests\Resources\Product;
-use Signifly\Responder\Tests\Resources\ProductResource;
-use Signifly\Responder\Tests\TestCase;
+use R4nkt\Responder\Contracts\ResourceResolver;
+use R4nkt\Responder\Tests\Resources\Product;
+use R4nkt\Responder\Tests\Resources\ProductResource;
+use R4nkt\Responder\Tests\TestCase;
 
 class ResourceResolverTest extends TestCase
 {
@@ -21,7 +21,7 @@ class ResourceResolverTest extends TestCase
     public function it_resolves_from_a_model_class()
     {
         $resourceClass = $this->resolver->resolve(
-            \Signifly\Responder\Tests\Models\Product::class
+            \R4nkt\Responder\Tests\Models\Product::class
         );
 
         $this->assertEquals(Product::class, $resourceClass);
@@ -33,7 +33,7 @@ class ResourceResolverTest extends TestCase
         config(['responder.use_type_suffix' => true]);
 
         $resourceClass = $this->resolver->resolve(
-            \Signifly\Responder\Tests\Models\Product::class
+            \R4nkt\Responder\Tests\Models\Product::class
         );
 
         $this->assertEquals(ProductResource::class, $resourceClass);

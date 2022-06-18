@@ -1,9 +1,9 @@
 <?php
 
-namespace Signifly\Responder\Concerns;
+namespace R4nkt\Responder\Concerns;
 
 use Illuminate\Contracts\Support\Responsable;
-use Signifly\Responder\Contracts\Responder;
+use R4nkt\Responder\Contracts\Responder;
 
 trait Respondable
 {

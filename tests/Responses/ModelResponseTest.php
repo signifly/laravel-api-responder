@@ -1,12 +1,12 @@
 <?php
 
-namespace Signifly\Responder\Tests\Responses;
+namespace R4nkt\Responder\Tests\Responses;
 
 use Illuminate\Http\JsonResponse;
-use Signifly\Responder\Responses\ModelResponse;
-use Signifly\Responder\Tests\Models\Product;
-use Signifly\Responder\Tests\Resources\ProductResource;
-use Signifly\Responder\Tests\TestCase;
+use R4nkt\Responder\Responses\ModelResponse;
+use R4nkt\Responder\Tests\Models\Product;
+use R4nkt\Responder\Tests\Resources\ProductResource;
+use R4nkt\Responder\Tests\TestCase;
 
 class ModelResponseTest extends TestCase
 {

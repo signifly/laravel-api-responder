@@ -1,9 +1,9 @@
 <?php
 
-namespace Signifly\Responder\Facades;
+namespace R4nkt\Responder\Facades;
 
 use Illuminate\Support\Facades\Facade;
-use Signifly\Responder\Contracts\Responder as ResponderContract;
+use R4nkt\Responder\Contracts\Responder as ResponderContract;
 
 class Responder extends Facade
 {

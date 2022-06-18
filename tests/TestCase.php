@@ -1,12 +1,12 @@
 <?php
 
-namespace Signifly\Responder\Tests;
+namespace R4nkt\Responder\Tests;
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Signifly\Responder\ResponderServiceProvider;
-use Signifly\Responder\Tests\Models\Product;
+use R4nkt\Responder\ResponderServiceProvider;
+use R4nkt\Responder\Tests\Models\Product;
 
 abstract class TestCase extends Orchestra
 {
@@ -27,7 +27,7 @@ abstract class TestCase extends Orchestra
         ]);
         $app['config']->set('app.key', 'base64:9e0yNQB60wgU/cqbP09uphPo3aglW3iQJy+u4JQgnQE=');
 
-        $app['config']->set('responder.namespace', 'Signifly\\Responder\\Tests\\Resources');
+        $app['config']->set('responder.namespace', 'R4nkt\\Responder\\Tests\\Resources');
     }
 
     protected function getPackageProviders($app)

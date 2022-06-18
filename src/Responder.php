@@ -1,26 +1,26 @@
 <?php
 
-namespace Signifly\Responder;
+namespace R4nkt\Responder;
 
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Contracts\Support\Responsable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Collection;
-use Signifly\Responder\Contracts\ModelResolver;
-use Signifly\Responder\Contracts\ResourceResolver;
-use Signifly\Responder\Contracts\Responder as Contract;
-use Signifly\Responder\Responses\CollectionResponse;
-use Signifly\Responder\Responses\DefaultResponse;
-use Signifly\Responder\Responses\ModelResponse;
-use Signifly\Responder\Responses\PaginatorResponse;
+use R4nkt\Responder\Contracts\ModelResolver;
+use R4nkt\Responder\Contracts\ResourceResolver;
+use R4nkt\Responder\Contracts\Responder as Contract;
+use R4nkt\Responder\Responses\CollectionResponse;
+use R4nkt\Responder\Responses\DefaultResponse;
+use R4nkt\Responder\Responses\ModelResponse;
+use R4nkt\Responder\Responses\PaginatorResponse;
 
 class Responder implements Contract
 {
-    /** @var \Signifly\Responder\Contracts\ModelResolver */
+    /** @var \R4nkt\Responder\Contracts\ModelResolver */
     protected $modelResolver;
 
-    /** @var \Signifly\Responder\Contracts\ResourceResolver */
+    /** @var \R4nkt\Responder\Contracts\ResourceResolver */
     protected $resourceResolver;
 
     public function __construct(
@@ -58,7 +58,7 @@ class Responder implements Contract
      * Respond for a collection.
      *
      * @param  \Illuminate\Support\Collection $data
-     * @return \Signifly\Responder\Responses\CollectionResponse
+     * @return \R4nkt\Responder\Responses\CollectionResponse
      */
     protected function respondForCollection(Collection $data, ?string $resourceClass)
     {
@@ -77,7 +77,7 @@ class Responder implements Contract
      * Respond for a given model.
      *
      * @param  \Illuminate\Database\Eloquent\Model  $model
-     * @return \Signifly\Responder\Responses\ModelResponse
+     * @return \R4nkt\Responder\Responses\ModelResponse
      */
     protected function respondForModel(Model $model, ?string $resourceClass)
     {
@@ -92,7 +92,7 @@ class Responder implements Contract
      * Respond for a paginator.
      *
      * @param  \Illuminate\Contracts\Pagination\LengthAwarePaginator $data
-     * @return \Signifly\Responder\Responses\PaginatorResponse
+     * @return \R4nkt\Responder\Responses\PaginatorResponse
      */
     protected function respondForPaginator(LengthAwarePaginator $data, ?string $resourceClass)
     {

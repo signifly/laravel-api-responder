@@ -1,6 +1,6 @@
 <?php
 
-namespace Signifly\Responder\Exceptions;
+namespace R4nkt\Responder\Exceptions;
 
 use Exception;
 

@@ -1,13 +1,13 @@
 <?php
 
-namespace Signifly\Responder;
+namespace R4nkt\Responder;
 
 use Illuminate\Support\ServiceProvider;
-use Signifly\Responder\Contracts\ModelResolver as ModelResolverContract;
-use Signifly\Responder\Contracts\ResourceResolver as ResourceResolverContract;
-use Signifly\Responder\Contracts\Responder as ResponderContract;
-use Signifly\Responder\Support\ModelResolver;
-use Signifly\Responder\Support\ResourceResolver;
+use R4nkt\Responder\Contracts\ModelResolver as ModelResolverContract;
+use R4nkt\Responder\Contracts\ResourceResolver as ResourceResolverContract;
+use R4nkt\Responder\Contracts\Responder as ResponderContract;
+use R4nkt\Responder\Support\ModelResolver;
+use R4nkt\Responder\Support\ResourceResolver;
 
 class ResponderServiceProvider extends ServiceProvider
 {

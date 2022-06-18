@@ -1,6 +1,6 @@
 <?php
 
-namespace Signifly\Responder\Responses;
+namespace R4nkt\Responder\Responses;
 
 use Illuminate\Http\JsonResponse;
 

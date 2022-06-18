@@ -1,7 +1,7 @@
 {
-    "name": "signifly/laravel-api-responder",
-    "description": "API Responses for your Laravel API.",
-    "homepage": "https://github.com/signifly/laravel-api-responder",
+    "name": "r4nkt/laravel-api-responder",
+    "description": "API Responses for your Laravel API.  (Forked from signifly/laravel-api-responder.)",
+    "homepage": "https://github.com/r4nkt/laravel-api-responder",
     "license": "MIT",
     "authors": [
         {
@@ -11,24 +11,24 @@
         }
     ],
     "require": {
-        "php": "^7.2.5 || ^8.0",
-        "illuminate/contracts": "^6.0|^7.0|^8.0",
-        "illuminate/database": "^6.0|^7.0|^8.0",
-        "illuminate/http": "^6.0|^7.0|^8.0",
-        "illuminate/support": "^6.0|^7.0|^8.0"
+        "php": "^8.1",
+        "illuminate/contracts": "^9.0",
+        "illuminate/database": "^9.0",
+        "illuminate/http": "^9.0",
+        "illuminate/support": "^9.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^7.0|^8.0|^9.0",
-        "orchestra/testbench": "^4.0|^5.0|^6.0"
+        "phpunit/phpunit": "^9.5",
+        "orchestra/testbench": "^7.0"
     },
     "autoload": {
         "psr-4": {
-            "Signifly\\Responder\\": "src"
+            "R4nkt\\Responder\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Signifly\\Responder\\Tests\\": "tests"
+            "R4nkt\\Responder\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -40,10 +40,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Signifly\\Responder\\ResponderServiceProvider"
+                "R4nkt\\Responder\\ResponderServiceProvider"
             ],
             "aliases": {
-                "Responder": "Signifly\\Responder\\Facades\\Responder"
+                "Responder": "R4nkt\\Responder\\Facades\\Responder"
             }
         }
     }

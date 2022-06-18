@@ -1,6 +1,6 @@
 <?php
 
-namespace Signifly\Responder\Support;
+namespace R4nkt\Responder\Support;
 
 use Exception;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
@@ -9,7 +9,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use InvalidArgumentException;
-use Signifly\Responder\Contracts\ModelResolver as Contract;
+use R4nkt\Responder\Contracts\ModelResolver as Contract;
 
 class ModelResolver implements Contract
 {
