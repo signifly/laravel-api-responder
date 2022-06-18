@@ -1,10 +1,10 @@
 <?php
 
-namespace Signifly\Responder\Support;
+namespace R4nkt\Responder\Support;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use Signifly\Responder\Contracts\ResourceResolver as Contract;
-use Signifly\Responder\Exceptions\ResourceNotFoundException;
+use R4nkt\Responder\Contracts\ResourceResolver as Contract;
+use R4nkt\Responder\Exceptions\ResourceNotFoundException;
 
 class ResourceResolver implements Contract
 {

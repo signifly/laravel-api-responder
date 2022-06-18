@@ -1,13 +1,13 @@
 <?php
 
-namespace Signifly\Responder\Tests;
+namespace R4nkt\Responder\Tests;
 
-use Signifly\Responder\Contracts\Responder as ResponderContract;
-use Signifly\Responder\Facades\Responder;
-use Signifly\Responder\Responses\CollectionResponse;
-use Signifly\Responder\Responses\ModelResponse;
-use Signifly\Responder\Responses\PaginatorResponse;
-use Signifly\Responder\Tests\Models\Product;
+use R4nkt\Responder\Contracts\Responder as ResponderContract;
+use R4nkt\Responder\Facades\Responder;
+use R4nkt\Responder\Responses\CollectionResponse;
+use R4nkt\Responder\Responses\ModelResponse;
+use R4nkt\Responder\Responses\PaginatorResponse;
+use R4nkt\Responder\Tests\Models\Product;
 
 class ResponderTest extends TestCase
 {

@@ -10,7 +10,7 @@
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
-        <testsuite name="Signifly Test Suite">
+        <testsuite name="Laravel API Responder Test Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>

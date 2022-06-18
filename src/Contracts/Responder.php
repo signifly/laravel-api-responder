@@ -1,6 +1,6 @@
 <?php
 
-namespace Signifly\Responder\Contracts;
+namespace R4nkt\Responder\Contracts;
 
 use Illuminate\Contracts\Support\Responsable;
 

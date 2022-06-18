@@ -1,10 +1,10 @@
 <?php
 
-namespace Signifly\Responder\Tests\Responses;
+namespace R4nkt\Responder\Tests\Responses;
 
 use Illuminate\Http\JsonResponse;
-use Signifly\Responder\Responses\DefaultResponse;
-use Signifly\Responder\Tests\TestCase;
+use R4nkt\Responder\Responses\DefaultResponse;
+use R4nkt\Responder\Tests\TestCase;
 
 class DefaultResponseTest extends TestCase
 {

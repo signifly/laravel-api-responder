@@ -1,6 +1,6 @@
 <?php
 
-namespace Signifly\Responder\Tests\Resources;
+namespace R4nkt\Responder\Tests\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 

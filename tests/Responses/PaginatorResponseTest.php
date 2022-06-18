@@ -1,14 +1,14 @@
 <?php
 
-namespace Signifly\Responder\Tests\Responses;
+namespace R4nkt\Responder\Tests\Responses;
 
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Collection;
-use Signifly\Responder\Responses\PaginatorResponse;
-use Signifly\Responder\Tests\Models\Product;
-use Signifly\Responder\Tests\Resources\ProductResource;
-use Signifly\Responder\Tests\TestCase;
+use R4nkt\Responder\Responses\PaginatorResponse;
+use R4nkt\Responder\Tests\Models\Product;
+use R4nkt\Responder\Tests\Resources\ProductResource;
+use R4nkt\Responder\Tests\TestCase;
 
 class PaginatorResponseTest extends TestCase
 {

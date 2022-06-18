@@ -1,3 +1,5 @@
+This repository was forked from github.com/signifly/laravel-api-responder.  Here is the original license:
+
 # The MIT License (MIT)
 
 Copyright (c) Signifly <info@signifly.com>
